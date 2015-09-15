@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Statoil Developer Community, Cloud Hackathon, Trondheim Q3 2015</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+				<section>
+					<h4>Statoil Software Developer Community</h4>
+					</br>	
+					<h2>Cloud Tutorial & Hackathon</h2>
+					</br>	
+					<h4>Trondheim, 21.-22. September 2015</h4>				
+				</section>
+				
+				<section>
+					<h1>Explore, Learn & have Fun</h1>		
+				</section>
+				
+
+				<section>
+					<h1>Agenda</h1>
+					</br>
+						<section>
+							</br>
+							<h2>Monday 21.09</h2>
+							<table>
+								<thead>
+									<tr>
+										<th>Time</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>09:00</td>
+										<td>Welcome</td>
+									<tr>
+									<tr>
+										<td>09:30</td>
+										<td>Tutorial starts</td>
+									<tr>
+									<tr>
+										<td>11:30</td>
+										<td>Lunch</td>
+									<tr>
+									<tr>
+										<td>12:00</td>
+										<td>Tutorial continues</td>
+									<tr>
+										<tr>
+										<td>18:00</td>
+										<td>Pizza & Beer</td>
+									<tr>		
+								</tbody>
+							</table>
+							</section>
+							<section>
+							</br>	
+							<h2>Tuesday 22.09</h2>
+								<table>
+								<thead>
+									<tr>
+										<th>Time</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>08:30</td>
+										<td>Hackathon starts</td>
+									<tr>
+									<tr>
+										<td></td>
+										<td>Floating lunch</td>
+									<tr>
+									<tr>
+										<td></td>
+										<td>Standups</td>
+									<tr>
+										<tr>
+										<td>14:30</td>
+										<td>Sharing & Summary</td>
+									<tr>
+									<tr>
+										<td>15:30</td>
+										<td>Fine</td>
+									<tr>		
+								</tbody>
+							</table>
+							</section>
+				</section>
+				
+				<!-- Welcome slides -->
+				<section>
+					<section>
+						<h2>Welcome</h2>
+						<ul>
+							<li>HSE</li>
+							<li>The Statoil Development Community</li>
+							<li>Ground rules</li>
+							<li>Take photographs, be social</li>
+							<li>...</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section data-background="http://pmc-group.com/wp-content/uploads/2013/10/safety-health-environment-final.png">
+						<h1 style="color:black">HSE</h1>
+							<ul>
+								<li style="color:black">Fire exits</li>
+								<li style="color:black">The are noe fire drills planned for today</li>
+								<li>..</li>
+							</ul>
+					</section>	
+					<section data-background="white">
+						<h2>The Statoil Development Community</h2>
+						<p>
+							A community of capable, relevant ++++. How we got started
+						</p>
+						<pre><code data-trim contenteditable>
+{	"local_community" : [ 
+		{
+			"location": "Bergen",
+			"playground": "Monthly",
+			"ambassador": "Son"
+		},
+		{
+			"location": "Trondheim",
+			"playground": "Weekly",
+			"ambassador": "Ellen"
+		},
+		{
+			"location": "Stavanger",
+			"playground": "Weekly",
+			"ambassador": "Ingvild"
+		}],
+	"company_community": {
+		"Organizer": "Lars Kåre / ITV-DIS",
+		"Events": ["On The Wall Sessions",
+		"Annual Statoil Developer Days"]	
+	}
+}
+
+						</code></pre>	
+					</section>
+					<section>
+						<h2>Ground rules</h2>
+						
+					</section>
+					<section>
+						<h2>Be social</h2>
+						
+					</section>
+					<section>
+						<h2>.. open ...</h2>
+						
+					</section>
+				</section>	
+				
+				<!-- Start tutorial part #1-->
+				<section>
+					<section data-background="red">
+						<h1>Tutorial part #1</h1>
+						<h4>Building a small NodeJs "Hello world"</h4>
+						<h4> Get the code under version control</h4>
+					</section>
+					
+					<section data-background="white">
+						<h2>Verifying the development environment</h2>
+					</section>
+					<section>
+						<p>Verify that git is installed<p>
+						<pre><code data-trim contenteditable class="fragment">
+							c:\git --version
+						</code></pre>
+					</section>
+					<section>	
+						<p>Verify that nodejs is installed</p>
+						<pre><code data-trim contenteditable class="fragment">
+							c:\node -v
+						</code></pre>
+					</section>
+					<section data-background="https://assets-cdn.github.com/images/modules/open_graph/github-mark.png">	
+						<p style="color:black">Verify access to github</br>
+						Login to</br> <a href="https://github.com/swtrh" target="_blank">https://github.com/swtrh</a></p>
+					</section>
+					<section>	
+						<p>Verify proxy settings</br>HTTPS_PROXY=http://www-proxy.statoil.no:80</p>
+						<pre><code data-trim contenteditable class="fragment">
+							c:\set
+						</code></pre>
+					</section>
+					<section>	
+						<p>Update NPM</p>
+						<pre><code data-trim contenteditable class="fragment">
+Npm install npm -g
+Npm -v (should give version 2.5.1 or newer)
+						</code></pre>
+					</section>
+					
+					<section data-background="white">
+						<h2>Creating the project</h2>
+					</section>
+					<section>
+						<p>Create local project directory</p>
+						<pre><code data-trim contenteditable class="fragment">
+mkdir lkskMyApp1 (use your own initial)
+cd lkskMyApp1
+						</code></pre>
+					</section>
+					<section>
+						<p>Init the NodeJs project</p>
+						<pre><code data-trim contenteditable class="fragment">
+c:\npm init
+
+name: (lkskMyApp1) lkskMyApp1
+version: (1.0.0)
+description: A NodeJs test app
+entry point: (index.js)
+test command:
+git repository:
+keywords:
+author: Lars Kåre Skjorestad
+license: (ISC)
+About to write to D:\lksk\dev\projects\lkskMyApp1\package.json:
+
+{
+  "name": "lkskMyApp1",
+  "version": "1.0.0",
+  "description": "A NodeJs test app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lars Kåre Skjorestad",
+  "license": "ISC"
+}
+
+
+Is this ok? (yes) yes
+						</code></pre>
+					</section>
+					<section>
+						<p>Create index.js in the project directory</p>
+						<p>Add the following code</p>
+						<pre><code data-trim contenteditable class="fragment">
+var express = require('express')
+var app = express()
+		 
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
+app.listen(3000)
+
+						</code></pre>
+					</section>
+					<section>
+						<p>Run the code and verify result</p>
+						<pre><code data-trim contenteditable class="fragment">
+c:\node index.js
+
+						</code></pre>
+						<pre><code data-trim contenteditable class="fragment" >
+Error: Cannot find module 'express'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+	..
+	..
+
+We are missing a the node module: express
+						</code></pre>
+					</section>
+					<section>
+						<p>Let's install the node module: express</p>
+						<pre><code data-trim contenteditable class="fragment">
+>npm install express --save
+
+npm WARN package.json lkskMyApp1@1.0.0 No repository field.
+npm WARN package.json lkskMyApp1@1.0.0 No README data
+express@4.13.3 node_modules\express
+├── escape-html@1.0.2
+├── merge-descriptors@1.0.0
+├── array-flatten@1.1.1
+├── cookie@0.1.3
+├── cookie-signature@1.0.6
+├── utils-merge@1.0.0
+├── range-parser@1.0.2
+├── methods@1.1.1
+├── vary@1.0.1
+├── fresh@0.3.0
+├── path-to-regexp@0.1.7
+├── etag@1.7.0
+├── content-type@1.0.1
+├── parseurl@1.3.0
+├── serve-static@1.10.0
+├── content-disposition@0.5.0
+├── depd@1.0.1
+├── qs@4.0.0
+├── finalhandler@0.4.0 (unpipe@1.0.0)
+├── debug@2.2.0 (ms@0.7.1)
+├── proxy-addr@1.0.8 (forwarded@0.1.0, ipaddr.js@1.0.1)
+├── send@0.13.0 (destroy@1.0.3, ms@0.7.1, statuses@1.2.1, mime@1.3.4, http-errors@1.3.1)
+├── accepts@1.2.13 (negotiator@0.5.3, mime-types@2.1.6)
+├── type-is@1.6.8 (media-typer@0.3.0, mime-types@2.1.6)
+└── on-finished@2.3.0 (ee-first@1.1.1)
+						</code></pre>
+						<p class="fragment highlight">Run the code again and verify in browser (localhost:3000)</p>
+					</section>
+					
+					
+					<section data-background="white">
+						<h2>Initializing a local git repository</h2>
+					</section>
+					<section>
+						<p>Creating git repository</p>
+						<pre><code data-trim contenteditable class="fragment">
+git init
+
+Initialized empty Git repository in ./lkskMyApp1/.git/
+
+						</code></pre>
+					</section>
+					<section>
+						<p>Create .gitignore file</p>
+						<p>This file will contain all the content that should not be part of version control. The first version should look like this:<p>
+						<pre><code data-trim contenteditable class="fragment">
+node_modules
+
+						</code></pre>
+					</section>
+					<section>
+						<p>Add files to local git repository and do a commit</p>
+						<pre><code data-trim contenteditable class="fragment">
+git add index.js
+git add package.json
+git add .gitignore
+git commit -a -m "Initial version of myapp1"
+
+						</code></pre>
+					</section>
+					<section data-background="green">
+						<h2>Task:</h2>
+						<p>Add a line of code to your app that prints a line to the console telling that the app has started and which ports it is listening to
+						<pre><code data-trim contenteditable class="fragment">
+
+..
+..
+app.listen(3000);
+
+console.log ('Server started on port 3000');
+
+						</code></pre>
+					</section>
+					
+					<section data-background="white">
+						<h2>Connecting to github</h2>
+					</section>
+					<section>
+					 <p>Create a repository on <a href="https://github.com/swtrh">https://github.com/swtrh</a>
+					 	<ol>
+							<li>Remember to select the correct organisation (swtrh)
+							<li>Give the repository the same name as your app "lkskMyApp1"</li>
+							<li>Make the repository public</li>
+							<li>Make a note of the github url for you project</li>
+							<p style="color:red">https://github.com/swtrh/lkskMyApp1.git</p>				 
+					 	</ol>	
+					</section>
+					<section>
+						<p>Push the project to the github repository you just created</p>
+						<p>Verify the results<p>
+						<small>(Remember to create a personal access token if you use two-factor authentication)</small>
+						<pre><code data-trim contenteditable class="fragment">
+
+git remote add origin https://github.com/swtrh/lkskMyApp1.git
+git push -u origin master
+
+						</code></pre>						
+					</section>
+					
+				</section>	
+					
+					
+				<!-- Start tutorial part #2-->
+				<section>
+					<section data-background="red">
+						<h1>Tutorial part #2</h1>
+						<h4>Connecting to Azure</h4>
+						<h4>Enabling auto deploy from version control</h4>
+					</section>
+					
+					<section>
+						<h2>Creating the webApp in Microsoft Azure</h2>
+						<p>Steps</p>
+						<div style="font-size:24px">
+							<ol>
+								<li>Enter the MS Azure Portal at <a href="https://portal.azure.com" target="_blank">https://portal.azure.com</a></li>
+								<li>Log on using your statoil account, choose "work- & School" account</li>
+								<li>Choose "+ New" -> "Web + Mobile" -> Web App</li>
+								<li>Enter the following information</li>
+									<ul>
+										<li>Name: lkskMyApp1</li>
+										<li>Subscription: LKSK-Hackathonsubscripton</li>
+										<li>Resource Group: Default</li>
+										<li>App Service Plan: DefaultAppService...</li>
+										<li>Press "Create" - could take minutes to finish</li>
+									</ul>
+								</li>Test the url for the new app
+							</ol>	
+						 </div>
+					</section>
+				
+					<section data-background="green">
+						<h2>Task: Connect Azure & Github</h2>
+						<p>Play around in Azure and see if you find how to connect it to gitHub</p>
+						<div style="font-size:24px" class="fragment">
+							<ol>
+								<li>Find "deployment" in Azure webapp (Settings->Continous Deployment)</li>
+								<li>Configure required settings</li>
+								<li>Source: GitHub</li>
+								<li>Enter the following information</li>
+									<ul>
+										<li>Authorization: Your GitHub Account</li>
+										<li>Organization: swtrh</li>
+										<li>Project: Your GitHub project</li>
+										<li>Branch: master</li>
+										<li>Press "Ok" - Azure will not fecth from GitHub and Deploy</li>
+										<p><small>It is expected that you are asked to Authorize Azure to connect to your GitHub repositories</small></p>
+									</ul>
+								<li>Verify the results - using the URL from Azure</li>
+							</ol>	
+						 </div>
+					</section>
+					<section data-background="red">
+						<h2>Huston - we have a problem</h2>
+						<p>Thing looks ok on Azure but the browser reports
+						<pre><code data-trim contenteditable>
+You do not have permission to view this directory or page.
+						</code></pre>
+					</section>
+					<section data-background="green">
+						<h2>Task:Identify problem(s)</h2>
+						<p><small>Play around and investigate. Keyword: (deployment)logs & logging</small></p>
+						<ol>
+							<li class="fragment">Do we know which file Azure want to start for the webapp?</li>
+							<li class="fragment">Server ports</li>				
+						</ol>
+					</section>
+					<section>
+						<p>Specifying startup file for the web application</p>
+						<small>(This can be done in many ways - we show one "common")</small>
+						<p>Edit your local package.json and add the following line</p>
+						<pre><code data-trim contenteditable class="fragment">
+"scripts": {
+  "start": "node index.js"
+}
+						</code></pre>
+						<div class="fragment">
+							<p>Test locally</p>
+							<pre><code data-trim contenteditable >
+npm start
+							</code></pre>
+						</div>
+						<div class="fragment">
+							<p>Push changes to github and verify Azure redeployment</p>
+							<pre><code data-trim contenteditable >
+git commit -a -m "Adding startscript to package.json"
+git push
+							</code></pre>
+						</div>								
+					</section>
+					<section>
+						<p>Defining serverport</p>
+						<p class="fragment">The quick fix and dirty fix would be to set the server to listen on port 80 :). That will not work on your Statoil PC due to firewall issues</p>
+						<p class="fragment">Solution: Dynamic allocation of server port</p>				
+					</section>
+					<section>
+						<p>Reading server port from the Environment</p>
+						<small>(This can be done in many ways - we show one "common" solution)</small>
+						<div class="fragment">
+							<p>Alter index.js to read port from environment</p>
+							<pre><code data-trim contenteditable >
+..
+var port = (process.env.PORT || '3000');
+..
+app.listen(port);
+console.log ('Server started on port '+ port);
+							</code></pre>
+							<p>Test locally (Set port=3000)</p>
+							<p>Commit locally, push to github and verify results on Azure
+						</div>					
+					</section>
+					<section data-background="https://cdn3.vox-cdn.com/thumbor/ST3W8A3Kum8HlwddNHoF07WWrhk=/0x0:1920x1080/1600x900/cdn0.vox-cdn.com/uploads/chorus_image/image/46147742/cute-success-kid-1920x1080.0.0.jpg">
+					 <h1>Sweet Success</h1>
+					</section>										
+				</section>  <!-- tutorial part 2 -->	
+					
+				<!-- Start tutorial part #3-->
+				<section>
+					<section data-background="red">
+						<h1>Tutorial part #3</h1>
+						<h4>The express framework</h4>
+						<h4>..</h4>
+					</section>
+					<section  data-background="yellow">
+						<h1>Some words of caution on Cloud solutions</h1>
+						<ul>
+							<li class="fragment">Creating is free</li>
+							<li class="fragment">Using cost money</li>
+							<li class="fragment">It is really hard to figure out what the cost will be</li>
+							<li class="fragment">It is as important to <em>stop</em> as to <em>start</em> a service :)</li>
+						<ul>
+					</section>
+				</section>
+					
+					<!-- Start tutorial part #4-->
+				<section>
+					<section data-background="red">
+						<h1>Tutorial part #4</h1>
+						<h4>Connection to databases</h4>
+						<h4>..</h4>
+					</section>
+					<section>
+						<h1>Placeholder</h1>
+					</section>
+				</section>
+				
+				<!-- Stop tutorial -->
+				
+				<section>
+					<section data-background="brown">
+						<h1>Hackathon</h1>
+						<h4>..</h4>
+						<h4>..</h4>
+					</section>
+					<section>
+						<h1>Things to explore</h1>
+						
+						
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
