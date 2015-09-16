@@ -550,7 +550,7 @@ console.log ('Server started on port '+ port);
 				<section data-background="red">
 					<h1>Tutorial part #3</h1>
 					<h4>The express framework</h4>
-					<h4>..</h4>
+					<small>You probably will be using framworks. Express is one of many. Software Developent is often about connecting the dots, gluing things together rather than the hard core development people think of.</small>
 				</section>
 				<section data-background="yellow">
 					<h1>Some words of caution on Cloud solutions</h1>
@@ -561,8 +561,195 @@ console.log ('Server started on port '+ port);
 						<li class="fragment">It is as important to <em>stop</em> as to <em>start</em> a service :)</li>
 						<ul>
 				</section>
-			</section>
+				<section>
+					<h1>The Express framework</h1>
+					<p>It's home on <a href="https://www.npmjs.com/package/<express></express>">npmjs.com</a></p>
+					<p>Let's install the generator (<a href="https://www.npmjs.com/package/express-generator">link</a>)- a tool to quickly
+						set up a skeleton for the framework</p>
+					<pre class="fragment"><code data-trim contenteditable >
+npm install express-generator --save
 
+npm WARN prefer global express-generator@4.13.1 should be installed with -g
+express-generator@4.13.1 node_modules\express-generator
+├── sorted-object@1.0.0
+├── commander@2.7.1 (graceful-readlink@1.0.1)
+└── mkdirp@0.5.1 (minimist@0.0.8)
+					</code></pre>
+					<p class="fragment">The "-g" option means global, not only for your local project</p>
+				</section>
+				<section>
+					<p>Let's generate a webapp skeleton</p>
+					<pre class="fragment"><code data-trim contenteditable >
+express
+
+destination is not empty, continue? [y/N] y
+
+   create : .
+   create : ./package.json
+   create : ./app.js
+   create : ./public
+   create : ./public/javascripts
+   create : ./views
+   create : ./views/index.jade
+   create : ./views/layout.jade
+   create : ./views/error.jade
+   create : ./routes
+   create : ./routes/index.js
+   create : ./routes/users.js
+   create : ./public/images
+   create : ./public/stylesheets
+   create : ./public/stylesheets/style.css
+   create : ./bin
+   create : ./bin/www
+
+   install dependencies:
+     > cd . && npm install
+
+   run the app:
+     > SET DEBUG=lkskMyApp1:* & npm start
+
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Test app locally</p>
+					<pre class="fragment"><code data-trim contenteditable >
+npm start
+
+> lkskMyApp1@0.0.0 start D:\lksk\dev\projects\lkskMyApp1
+> node ./bin/www
+
+module.js:338
+    throw err;
+          ^
+Error: Cannot find module 'serve-favicon'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+    at Module.require (module.js:365:17)
+    at require (module.js:384:17)
+   ....
+					</code>
+					</pre>
+					<p class="fragment">We are missing modules</p>
+				</section>
+				<section>
+					<p>Install missing modules</p>
+					<pre class="fragment"><code data-trim contenteditable >
+npm install
+
+debug@2.2.0 node_modules\debug
+└── ms@0.7.1
+
+serve-favicon@2.3.0 node_modules\serve-favicon
+├── ms@0.7.1
+├── fresh@0.3.0
+├── parseurl@1.3.0
+└── etag@1.7.0
+
+cookie-parser@1.3.5 node_modules\cookie-parser
+├── cookie@0.1.3
+└── cookie-signature@1.0.6
+
+morgan@1.6.1 node_modules\morgan
+├── basic-auth@1.0.3
+├── on-headers@1.0.0
+├── depd@1.0.1
+└── on-finished@2.3.0 (ee-first@1.1.1)
+
+body-parser@1.13.3 node_modules\body-parser
+├── bytes@2.1.0
+├── content-type@1.0.1
+├── depd@1.0.1
+├── qs@4.0.0
+├── http-errors@1.3.1 (statuses@1.2.1, inherits@2.0.1)
+├── raw-body@2.1.3 (unpipe@1.0.0)
+├── iconv-lite@0.4.11
+├── on-finished@2.3.0 (ee-first@1.1.1)
+└── type-is@1.6.8 (media-typer@0.3.0, mime-types@2.1.6)
+
+jade@1.11.0 node_modules\jade
+├── character-parser@1.2.1
+├── void-elements@2.0.1
+├── commander@2.6.0
+├── mkdirp@0.5.1 (minimist@0.0.8)
+├── jstransformer@0.0.2 (is-promise@2.1.0, promise@6.1.0)
+├── constantinople@3.0.2 (acorn@2.4.0)
+├── with@4.0.3 (acorn-globals@1.0.6, acorn@1.2.2)
+├── clean-css@3.4.3 (commander@2.8.1, source-map@0.4.4)
+├── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+└── uglify-js@2.4.24 (uglify-to-browserify@1.0.2, async@0.2.10, source-map@0.1.34, yargs@3.5.4)
+
+					</code>
+					</pre>
+					<p class="fragment">Modules are updated based on dependencies in package.json. Test app locally</p>
+					<small class="fragment">Startfile is updated (package.json). New default port.</small>
+				</section>
+				<section data-background="green">
+					<p>Task:</p>
+					<ol>
+						<li>Add files to local git</li>
+						<li>Push changes to github</li>
+						<li>Verify deployment and result on Azure</li>
+						<ol>
+							<pre class="fragment"><code data-trim contenteditable >
+git stataus
+...
+git add * --all
+..
+git status
+..
+git commit -a -m "Added Express framework"
+..
+git push
+
+
+					</code>
+					</pre>
+				</section>
+				<section data-background="green">
+					<p>Task:</p>
+					<ol>
+						<li>Change the startpage to say "Greetings, welcome to Express"</li>
+						<li>Verify cange locally</li>
+						<li>Push changes to github</li>
+						<li>Verify deployment and result on Azure</li>
+						<ol>
+							<pre class="fragment"><code data-trim contenteditable >
+edit "views\index.jade"
+npm start
+git status
+git commit -a -m "Alter welcome page"
+git push
+
+
+					</code>
+					</pre>
+					<p class="fragment">You have now established a short development lifecycle</p>
+				</section>
+				<section data-background="green">
+					<p>Task: Routing</p>
+					<ol>
+						<li>Extend the app to respons to "http://..../store" requests</li>
+						<li>Verify cange locally. Push changes to github. Verify deployment and result on Azure</br><small>Google is your friend. So is npmjs.com and http://stackoverflow.com/</small></li>
+						<ol>
+							<pre class="fragment"><code data-trim contenteditable >
+Changes in app.js
+	var store = require('./routes/store');
+	app.use('/store', store);
+New file "store.js" in ./routes (copy index.js)
+	Edit store.js to render store
+New file "store.jade" in view (copy index.jade)
+
+
+
+
+
+					</code>
+					</pre>
+				</section>
+				
+
+			</section>
 			<!-- Start tutorial part #4-->
 			<section>
 				<section data-background="red">
@@ -571,7 +758,7 @@ console.log ('Server started on port '+ port);
 					<h4>..</h4>
 				</section>
 				<section>
-					<h1>Placeholder</h1>
+					<h1>..</h1>
 				</section>
 			</section>
 
