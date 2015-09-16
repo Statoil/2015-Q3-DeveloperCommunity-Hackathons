@@ -737,16 +737,76 @@ Changes in app.js
 	var store = require('./routes/store');
 	app.use('/store', store);
 New file "store.js" in ./routes (copy index.js)
-	Edit store.js to render store
+	Edit store.js to render "store.jade"
 New file "store.jade" in view (copy index.jade)
+					</code>
+					</pre>
+					<p class="fragment"><a href="http://jade-lang.com/" target="_blank">Jade</a> is a node template engine</p>
+				</section>
+				<section>
+					<p>Let's enhance the store with a message form</p>
+					<pre class="fragment"><code data-trim contenteditable >
+Extend store.jade to include a message form
+ form(action='http://localhost:3500/store/message',method='post')
+  input(type="text",name="message", placeholder="Enter a message",size="40")
+  input(type='submit',name='submit',value='Submit')
 
-
-
-
-
+(jade is sensitive on indents & white spaces)
+Verify locally
 					</code>
 					</pre>
 				</section>
+				<section>
+					<p>Let's enhance the store with the ability to receive a submitted message</p>
+					<pre class="fragment"><code data-trim contenteditable >
+Extend store.js to receive message
+	router.route('/message')
+		.post(function (req, res, next) {
+		console.log('Receiving message ' + req.body.message);
+		res.send('Message was ' + req.body.message);
+	});
+
+Verify locally. Then commit, push to github and verify on Azure
+					</code>
+					</pre>
+				</section>
+				<section data-background="yellow">
+					<p>It did not work on Azure </br>(unless you had the local appserver running)</p>
+					<p class="fragment">The "submitt" adress was hardcoded</p>
+					<p class="fragment"></br>How should we handle this kind of configuration?</br>Configuration that depends on the runtime environment</p>
+					<pre class="fragment"><code data-trim contenteditable >
+We will environment variables
+	NODE_ENV=development(local) | production (azure default)
+Some "helper code" in ./bin/www
+	server.listen(port);
+	server.on('error', onError);
+	server.on('listening', onListening);
+Altering ./routes/store.js to pass on URL to template
+	router.get('/', function(req, res, next) {
+ 		 res.render('store', { title: 'Store', messageURL: process.env.MESSAGE_URL });
+	});
+Using value passed from store.js in store.jade
+	form(action='#{messageURL}',method='post')
+Commit, Push to Azure ad Verify!
+					</code>
+					</pre>
+				</section>
+					<section data-background="yellow">
+					<p>It almost worked :)</p>
+					<p class="fragment">We must define the MESSAGE_URL in Azure</p>
+					<div class="fragment">
+						<ol>
+							<li>In Azure, select settings</li>
+							<li>Select Application Settings</li>
+							<li>In the "App settings section" add the MESSAGE_URL and the correct Azure url</li>
+							<li>Remeber to save! Azure restarts app automatically</li>
+							<li>Verify</li>	
+						</ol>
+					</div>
+						
+					<p class="fragment"></br>..</p>
+				</section>
+				
 				
 
 			</section>
