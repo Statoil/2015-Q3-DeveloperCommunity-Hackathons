@@ -724,7 +724,7 @@ git push
 
 					</code>
 					</pre>
-					<p class="fragment">You have now established a short development lifecycle</p>
+							<p class="fragment">You have now established a short development lifecycle</p>
 				</section>
 				<section data-background="green">
 					<p>Task: Routing</p>
@@ -741,7 +741,7 @@ New file "store.js" in ./routes (copy index.js)
 New file "store.jade" in view (copy index.jade)
 					</code>
 					</pre>
-					<p class="fragment"><a href="http://jade-lang.com/" target="_blank">Jade</a> is a node template engine</p>
+							<p class="fragment"><a href="http://jade-lang.com/" target="_blank">Jade</a> is a node template engine</p>
 				</section>
 				<section>
 					<p>Let's enhance the store with a message form</p>
@@ -773,7 +773,8 @@ Verify locally. Then commit, push to github and verify on Azure
 				<section data-background="yellow">
 					<p>It did not work on Azure </br>(unless you had the local appserver running)</p>
 					<p class="fragment">The "submitt" adress was hardcoded</p>
-					<p class="fragment"></br>How should we handle this kind of configuration?</br>Configuration that depends on the runtime environment</p>
+					<p class="fragment">
+						</br>How should we handle this kind of configuration?</br>Configuration that depends on the runtime environment</p>
 					<pre class="fragment"><code data-trim contenteditable >
 We will environment variables
 	NODE_ENV=development(local) | production (azure default)
@@ -791,7 +792,7 @@ Commit, Push to Azure ad Verify!
 					</code>
 					</pre>
 				</section>
-					<section data-background="yellow">
+				<section data-background="yellow">
 					<p>It almost worked :)</p>
 					<p class="fragment">We must define the MESSAGE_URL in Azure</p>
 					<div class="fragment">
@@ -800,28 +801,121 @@ Commit, Push to Azure ad Verify!
 							<li>Select Application Settings</li>
 							<li>In the "App settings section" add the MESSAGE_URL and the correct Azure url</li>
 							<li>Remeber to save! Azure restarts app automatically</li>
-							<li>Verify</li>	
+							<li>Verify</li>
 						</ol>
 					</div>
-						
-					<p class="fragment"></br>..</p>
+
+					<p class="fragment">
+						</br>..</p>
 				</section>
-				
-				
+
+
 
 			</section>
 			<!-- Start tutorial part #4-->
 			<section>
 				<section data-background="red">
 					<h1>Tutorial part #4</h1>
-					<h4>Connection to databases</h4>
-					<h4>..</h4>
+					<h4>Connection to a databases (mongoDB)</h4>
 				</section>
 				<section>
-					<h1>..</h1>
+					<h1>Creating a mongoDB service in Azure</h1>
+				</section>
+				<section>
+					<p>Creating a mongoDB service in Azure</p>
+					<ol>
+						<li class="fragment">In Azure select "+ New" -> "Data + Storage" -> "Mongolab"
+							<p><small>You are taken to the Azure Marketplace. Select MongoLab again</small></p>
+						</li>
+						<li class="fragment">Add information</li>
+						<div class="fragment">
+							<ul>
+								<li>Select the SandBox plan</li>
+								<li>Subsxcription: LKSK-Hackatonsubscription</li>
+								<li>Name: lksk_MongoLab (use your initials)</li>
+								<li>Region: North Europe</li>
+								<li>Select "Next" arrow and the the "Purchase" button
+									<p><small>Can take a while to procure</small></p>
+								</li>
+							</ul>
+						</div>
+					</ol>
+				</section>
+				<section>
+					<p>Creating a document collection in the database</p>
+					<ol>
+						<li class="fragment">Goto the "old" Azure portal <a href="https://manage.windowsazure.com/" target="_blankl">https://manage.windowsazure.com/</a></li>
+						<li class="fragment">Find your mongoLab in the Azure Service List</li>
+						<li class="fragment">Go to the MongoLab website for the next steps</li>
+						<li class="fragment">Select "+ Add collection". Create a "messages" collection</li>
+						<li class="fragment">Create a new database user "messagewriter". Create a password</li>
+						<li class="fragment">Make a note of the connection URI
+							<p><small><code>mongodb://dbuser:dbpassword@ds042898.mongolab.com:42898/lksk_MongoLab</code></small></p>
+						</li>
+					</ol>
+				</section>
+				<section>
+					<p>Let's add support for mongoDB to our project</p>
+					<p class="fragment">We start by searching for mongodb in <a href="https://www.npmjs.com/" target="_blank">https://www.npmjs.com/</a></p>
+					<p class="fragment">Looks like we should install the "mongodb" modules</p>
+					<pre class="fragment"><code data-trim contenteditable >
+npm install mongodb --save
+..
+mongodb@2.0.43 node_modules\mongodb
+├── readable-stream@1.0.31 (isarray@0.0.1, string_decoder@0.10.31, inherits@2.0.1, core-util-is@1.0.1)
+├── es6-promise@2.1.1
+└── mongodb-core@1.2.12 (bson@0.4.11, kerberos@0.0.14)
+					</code>
+					</pre>
+				</section>
+				<section>
+					<p>Let's add support for mongoDB in our code</p>
+					<p class="fragment">We will add code to connect and store messages in store.js</p>
+					<pre class="fragment"><code data-trim contenteditable style="font-size:16px"  >
+var MongoClient = require('mongodb').MongoClient;
+var mongoURL = '  mongodb://messagewriter:password@ds042898.mongolab.com:42898/lksk_MongoLab';
+
+router.route('/message')
+	.post(function (req, res, next) {
+
+	var txtMessage = (req.body.message || 'empty message');
+	// Storing message in database
+	MongoClient.connect(mongoURL, function(err, db) {
+		console.log("Connected to database");
+	
+		db.collection('messages').insert({'message': txtMessage}, {w: 1 }, function (err, item) {
+						if (err) {
+							console.log('Error storing message in database: ' + err);
+							db.close();
+							res.status(400).send('Error, unable to store message: ' + txtMessage);
+						} else {
+							db.close();
+							console.log('Message stored ok in database: ' + txtMessage)
+							res.status(200).send('Message stored: "' + txtMessage + '"');
+						}});
+	});   
+	// End storing message in database
+});
+					</code>
+					</pre>
+					<p class="fragment">Test locally and find document in mongoLab</p>
+				</section>
+				<section data-background="yellow">
+					<p>We are facing 1 or 2 problems now, which?</p>
+					<p class="fragment">Connectivity issues to the database if you are on the internal network</p>
+					<p class="fragment">Risk of storing password in git and then github</br><small>The mean time for this to be exploited is now around 8 minutes</small></p>
+				</section>
+
+				<section data-background="green">
+					<h2>Task:</h2>
+					<p>Find and implement a solution to the password problem</p>
+					<p class="fragment">Alter store.js to read the password in an env variable: DBPASSWORD</br><small>It's not perfect but it works</small/p>
+					<pre><code data-trim contenteditable class="fragment">
+var mongoURL = 'mongodb://messagewriter:' + (process.env.DBPASSWORD || 'empty') + '@ds042898.mongolab.com:42898/lksk_MongoLab';
+					</code></pre>
+					<p class="fragment">Testing locally, committing and pushing to Azure. Verifying in mongoLab. Remeber the env variable in Azure</p>
 				</section>
 			</section>
-
 			<!-- Stop tutorial -->
 
 			<section>
