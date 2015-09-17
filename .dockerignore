@@ -1,0 +1,6 @@
+test
+node_modules
+.gitaattributes
+.gitignore
+npm-debug.log
+README.md
