@@ -16,6 +16,7 @@ ENV PORT=8000
 
 WORKDIR /src/
 
+RUN npm install grunt-cli -g
 RUN npm install
 
 CMD ["grunt","serve"]
