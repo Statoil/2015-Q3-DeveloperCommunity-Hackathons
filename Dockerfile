@@ -1,6 +1,6 @@
 #Docker build file for the moodEchoServer
 #Using .dockerignore to remove files from context that is sendt to docker deamon for build
-FROM node:0.10
+FROM node
 
 COPY css /src/css/
 COPY img /src/img/
@@ -16,7 +16,8 @@ ENV PORT=8000
 
 WORKDIR /src/
 
-RUN npm install grunt-cli -g
+RUN npm install grunt --save
+RUN npm install grunt-cli --save
 RUN npm install
 
 CMD ["grunt","serve"]
