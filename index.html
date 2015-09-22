@@ -811,26 +811,26 @@ Verify locally. Then commit, push to github and verify on Azure
 					</pre>
 				</section>
 				<section data-background="yellow">
-					<p>It did not work on Azure </br>(unless you had the local appserver running)</p>
+					<p>It did not work on Azure </br><small>(unless you had the local appserver running)</small></p>
 					<p class="fragment">The "submit" adress was hardcoded</p>
 					<p class="fragment">
 						</br>How should we handle this kind of configuration?</br>Configuration that depends on the runtime environment?</p>
 					<pre class="fragment"><code data-trim contenteditable >
-We will environment variables
-	NODE_ENV=development(local) | production (azure default)
-Some "helper code" in ./bin/www
-	server.listen(port);
-	server.on('error', onError);
-	server.on('listening', onListening);
 Altering ./routes/store.js to pass on URL to template
-	router.get('/', function(req, res, next) {
- 		 res.render('store', { title: 'Store', messageURL: process.env.MESSAGE_URL });
-	});
+
+router.get('/', function(req, res, next) {
+   res.render('store',
+	  { title: 'Store', messageURL: process.env.MESSAGE_URL });
+ });
+
 Using value passed from store.js in store.jade
-	form(action='#{messageURL}',method='post')
-Commit, Push to Azure ad Verify!
+
+ form(action='#{messageURL}',method='post')
+ 
+Commit, Push to Azure ad Verify
 					</code>
 					</pre>
+				<p class="fragment">Commit, Push to Azure ad Verify</p>
 				</section>
 				<section data-background="yellow">
 					<p>It almost worked :)</p>
@@ -844,9 +844,6 @@ Commit, Push to Azure ad Verify!
 							<li>Verify</li>
 						</ol>
 					</div>
-
-					<p class="fragment">
-						</br>..</p>
 				</section>
 
 
@@ -910,19 +907,22 @@ mongodb@2.0.43 node_modules\mongodb
 					</pre>
 				</section>
 				<section>
-					<p>Let's add support for mongoDB in our code</p>
+					<p>Let's add support for mongoDB in our code (1/2)</p>
 					<p class="fragment">We will add code to connect and store messages in store.js</p>
 					<pre class="fragment"><code data-trim contenteditable style="font-size:16px"  >
 var MongoClient = require('mongodb').MongoClient;
 var mongoURL = 'mongodb://messagewriter:password@ds042898.mongolab.com:42898/lksk_MongoLab';
-
+ 				</code>
+					</pre>
+				</section>
+				<section>
+					<p>Let's add support for mongoDB in our code (2/2)</p>
+					<pre><code data-trim contenteditable style="font-size:16px"  >
 router.route('/message')
   .post(function (req, res, next) {
     var txtMessage = (req.body.message || 'empty message');
-    // Storing message in database
     MongoClient.connect(mongoURL, function(err, db) {
       console.log("Connected to database");
-
       db.collection('messages').insert({'message': txtMessage}, {w: 1 }, function (err, item) {
         if (err) {
           console.log('Error storing message in database: ' + err);
@@ -933,15 +933,12 @@ router.route('/message')
           console.log('Message stored ok in database: ' + txtMessage)
           res.status(200).send('Message stored: "' + txtMessage + '"');
         }
-      });
-    });
-    // End storing message in database
-});
+      });  }); });
 					</code>
 					</pre>
-					<p class="fragment">Test locally and find document in mongoLab</p>
+					<p>Test locally and find document in mongoLab</p>
 				</section>
-				<section data-background="yellow">
+		<section data-background="yellow">
 					<p>We are facing 1 or 2 problems now, which?</p>
 					<p class="fragment">Connectivity issues to the database if you are on the internal network</p>
 					<p class="fragment">Risk of storing password in git and then github</br><small>The average time for this to be exploited is now around 8 minutes</small></p>
@@ -951,8 +948,10 @@ router.route('/message')
 					<h2>Task:</h2>
 					<p>Find and implement a solution to the password problem</p>
 					<p class="fragment">Alter store.js to read the password in an env variable: DBPASSWORD</br><small>It's not perfect but it works</small/p>
-					<pre><code data-trim contenteditable class="fragment">
-var mongoURL = 'mongodb://messagewriter:' + (process.env.DBPASSWORD || 'empty') + '@ds042898.mongolab.com:42898/lksk_MongoLab';
+					<pre><code data-trim contenteditable class="fragment" 	>
+var mongoURL = 'mongodb://messagewriter:' + 
+	(process.env.DBPASSWORD || 'empty') +
+	'@ds042898.mongolab.com:42898/lksk_MongoLab';
 					</code></pre>
 					<p class="fragment">Testing locally, committing and pushing to Azure. Verifying in mongoLab. Remeber the env variable in Azure</p>
 				</section>
@@ -965,7 +964,6 @@ var mongoURL = 'mongodb://messagewriter:' + (process.env.DBPASSWORD || 'empty') 
 					<ul>
 						<li>Find tasks / projects</li>
 						<li>Work alone or in pairs</li>
-						<li>Update the "Actual work/groups" section on the event wiki with what you take on</li>
 						<li>We will experiment with stand-ups</li>
 						<li>... and summarize and share in the end</li>
 					</ul>
