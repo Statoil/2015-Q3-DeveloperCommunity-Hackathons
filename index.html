@@ -881,10 +881,10 @@ router.get('/', function(req, res, next) {
 						<li class="fragment">Add information</li>
 						<div class="fragment">
 							<ul>
-								<li>Select the SandBox plan</li>
-								<li>Subscription: LKSK-Hackatonsubscription</li>
-								<li>Name: lksk_MongoLab (use your initials)</li>
-								<li>Region: North Europe</li>
+								<li>Select the "SandBox plan"</li>
+								<li>Subscription: "LKSK-Hackatonsubscription"</li>
+								<li>Name: "lksk_MongoLab" <em>(use your initials)</em></li>
+								<li>Region: "North Europe"</li>
 								<li>Select "Next" arrow and the the "Purchase" button
 									<p><small>Can take a while to procure</small></p>
 								</li>
@@ -908,7 +908,7 @@ router.get('/', function(req, res, next) {
 				<section>
 					<p>Let's add support for mongoDB to our project</p>
 					<p class="fragment">We start by searching for mongodb in <a href="https://www.npmjs.com/" target="_blank">https://www.npmjs.com/</a></p>
-					<p class="fragment">Looks like we should install the "mongodb" modules</p>
+					<p class="fragment">Looks like we should install and explore the "mongodb" module</p>
 					<pre class="fragment"><code data-trim contenteditable >
 npm install mongodb --save
 ..
@@ -930,6 +930,7 @@ var mongoURL = 'mongodb://messagewriter:password@ds042898.mongolab.com:42898/lks
 				</section>
 				<section>
 					<p>Let's add support for mongoDB in our code (2/2)</p>
+					<p><small>Replace the "router.route('/message')" call.</small></p>
 					<pre><code data-trim contenteditable style="font-size:16px"  >
 router.route('/message')
   .post(function (req, res, next) {
@@ -953,32 +954,49 @@ router.route('/message')
 				</section>
 		<section data-background="yellow">
 					<p>We are facing 1 or 2 problems now, which?</p>
-					<p class="fragment">Connectivity issues to the database if you are on the internal network</p>
-					<p class="fragment">Risk of storing password in git and then github</br><small>The average time for this to be exploited is now around 8 minutes</small></p>
+					<p class="fragment" style="color:red">Connectivity
+						<span class="fragment" style="color:black">- we cannot reach the database when on the internal network (stopped in firewall)</span></p>
+					<p class="fragment" style="color:red">Exposing passwords
+						<span class="fragment" style="color:black">- risk of storing password in git and then github</br><small>The average time for this to be exploited is now around 8 minutes</small></span></p>
 				</section>
-
+		<section data-background="black">
+					<h2>The connectivity problem</h2>
+					<p>Two options</p>
+					<ol>
+						<li>Use an local/internal mongo database</li>
+						<li>Connect to another network hub </br>- like the guest wifi. 
+							<p class="fragment">Remember proxy settings</p>
+						</li>
+					</ol>		
+				</section>
+		
 				<section data-background="green">
 					<h2>Task:</h2>
 					<p>Find and implement a solution to the password problem</p>
-					<p class="fragment">Alter store.js to read the password in an env variable: DBPASSWORD</br><small>It's not perfect but it works</small/p>
+					<p class="fragment">Alter store.js to read the password from an env variable: DBPASSWORD</br>
+						<small>It's not perfect but it works?</small>
+						</br><small>And why not put the complete mongo URI into an env variable?</small></p>
 					<pre><code data-trim contenteditable class="fragment" 	>
 var mongoURL = 'mongodb://messagewriter:' + 
 	(process.env.DBPASSWORD || 'empty') +
 	'@ds042898.mongolab.com:42898/lksk_MongoLab';
 					</code></pre>
-					<p class="fragment">Testing locally, committing and pushing to Azure. Verifying in mongoLab. Remeber the env variable in Azure</p>
+					<p>Test locally,</br>committ and push to Azure.</br> Verify in mongoLab.</br> Remeber the env variable in Azure</p>
 				</section>
 			</section>
 			<!-- Stop tutorial -->
 
 			<section>
-				<section data-background="brown">
-					<h1>Hackathon</h1>
-					<ul>
-						<li>Find tasks / projects</li>
+				<section data-background="./img/matrixnumbers.jpg">
+					<h1>and now ...<h1>
+					<h1 class="fragment">the Hackathon</h1>
+					<ul class="fragment" style="color:black">
+						<b>
+						<li>Find tasks / projects (event wiki)</li>
 						<li>Work alone or in pairs</li>
 						<li>We will experiment with stand-ups</li>
 						<li>... and summarize and share in the end</li>
+						</b>
 					</ul>
 				</section>
 			</section>
