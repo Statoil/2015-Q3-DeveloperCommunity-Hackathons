@@ -869,39 +869,23 @@ router.get('/', function(req, res, next) {
 					<h4>Connection to a databases (mongoDB)</h4>
 				</section>
 				<section data-background="white">
-					<h1>Creating a mongoDB service in Azure</h1>
+					<h1>Creating a <a href="https://www.mongodb.org/" target="_blank">mongoDB</a> service in Azure</h1>
 				</section>
 				<section>
 					<p>Creating a mongoDB service in Azure</p>
-					<ol>
-						<li class="fragment">In Azure select "+ New" -> "Data + Storage" -> "Mongolab"
-							<p><small>You are taken to the Azure Marketplace. Select MongoLab again</small></p>
-							<p><small>If this step fails you can browse to <a href="https://mongolab.com/" target="_blank">https://mongolab.com/</a>, create an account and then continue.</small></p>
-						</li>
-						<li class="fragment">Add information</li>
-						<div class="fragment">
-							<ul>
-								<li>Select the "SandBox plan"</li>
-								<li>Subscription: "LKSK-Hackatonsubscription"</li>
-								<li>Name: "lksk_MongoLab" <em>(use your initials)</em></li>
-								<li>Region: "North Europe"</li>
-								<li>Select "Next" arrow and the the "Purchase" button
-									<p><small>Can take a while to procure</small></p>
-								</li>
-							</ul>
-						</div>
-					</ol>
+					<p class="fragment">... is currently only available for subscription admins in Azure<p>
+					<p class="fragment">Browse to <a href="https://mongolab.com/" target="_blank">https://mongolab.com/</a>,
+					 create an account using your private email/initials and then continue.</small></p>	
 				</section>
+				
 				<section>
-					<p>Creating a document collection in the database</p>
+					<p>Creating a database and the document collection</p>
 					<ol>
-						<li class="fragment">Goto the "old" Azure portal <a href="https://manage.windowsazure.com/" target="_blankl">https://manage.windowsazure.com/</a></li>
-						<li class="fragment">Find your mongoLab in the Azure Service List</li>
-						<li class="fragment">Go to the MongoLab website for the next steps</li>
-						<li class="fragment">Select "+ Add collection". Create a "messages" collection</li>
-						<li class="fragment">Create a new database user "messagewriter". Create a password</li>
+						<li class="fragment">In mongolab, create a "sandbox" database</li>
+						<li class="fragment">Select database and them + "Add collection"</br>Create a "<span style="color:red">messages</span>" collection</li>
+						<li class="fragment">Create a new database user "<span style="color:red">messagewriter</span>"</br> Create a password</li>
 						<li class="fragment">Make a note of the connection URI
-							<p><small><code>mongodb://dbuser:dbpassword@ds042898.mongolab.com:42898/lksk_MongoLab</code></small></p>
+							<p><small><code>Example: mongodb://dbuser:dbpassword@ds042898.mongolab.com:42898/lksk_MongoLab</code></small></p>
 						</li>
 					</ol>
 				</section>
