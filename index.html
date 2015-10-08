@@ -487,17 +487,22 @@ git push -u origin master
 					<div style="font-size:24px">
 						<ol>
 							<li>Enter the MS Azure Portal at <a href="https://portal.azure.com" target="_blank">https://portal.azure.com</a></li>
-							<li>Log on using your statoil account, choose "work- & School" account</li>
-							<li>Choose "+ New" -> "Web + Mobile" -> Web App</li>
-							<li>Enter the following information</li>
+							<li class="fragment">Log on using your statoil account, choose "work- & School" account</li>
+							<li class="fragment">Choose "+ New" -> "Web + Mobile" -> Web App</li>
+							<li class="fragment">Enter the following information</li>
 							<ul>
-								<li>Name: "lkskMyApp1"</li>
-								<li>Subscription: "LKSK-Hackathonsubscripton"</li>
-								<li>Resource Group: "SWDevelopmentCommunityBergen"</li>
-								<li>App Service Plan: "SWDevelopmentCommunityBergen"</li>
-								<li>Press "Create" - could take minutes to finish</li>
+								<li class="fragment">Name: "lkskMyApp1"</li>
+								<li class="fragment">Subscription: "LKSK-Hackathonsubscripton"</li>
+								<li class="fragment">Resource Group: "SWDevelopmentCommunityBergen"</li>
+								<li class="fragment">App Service Plan: "+ Create new"</li>
+									<ul>
+										<li class="fragment">App service plan: "lksk_ServicePlan" (Use your initials)</li>
+										<li class="fragment">Location: "North Europe"</li>
+										<li class="fragment">Pricing Tier: "Free" (use - View All - option)</li>
+										<li class="fragment">Press "Ok"</li>
+									</ul>
+								<li class="fragment">Press "Create"</br><span style="color:red">Test the url for the new app</span></li>
 							</ul>
-							</p>Test the url for the new app
 							</ol>
 					</div>
 				</section>
@@ -516,7 +521,7 @@ git push -u origin master
 								<li>Organization: "swbgo"</li>
 								<li>Project: "Your GitHub project"</li>
 								<li>Branch: "master"</li>
-								<li>Press "Ok" - Azure will not fecth from GitHub and Deploy</li>
+								<li>Press "Ok" - Azure will now fecth from GitHub and Deploy</li>
 								<p><small>It is expected that you are asked to Authorize Azure to connect to your GitHub repositories</small></p>
 							</ul>
 							<li>Verify the results - using the URL from Azure</li>
