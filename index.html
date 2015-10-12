@@ -59,13 +59,13 @@
 					<h1>Why a Software development Community?</h1>
 				</section>
 				<section data-background="white">
-					<h1>To create an internal arena for competence building & networking</h1>
+					<h1>To create an internal arena for competence-building & networking</h1>
 				</section>
 				<section>
-					<h1>Software Eats The World</h1>
+					<h1>"Software Eats The World"</h1>
 				</section>
 				<section>
-					<h2>Software Development And Data Science will become a business value enabler for Statoil</h2>
+					<h2>Software Development And Data Science will start to "define" business opportunities for Statoil</h2>
 					<p><small>Even if this not is broadly accepted yet</small></p>
 				</section>
 				<section>
@@ -73,7 +73,7 @@
 					<img src="./img/whereswdev.jpg" size="60%"></img>
 				</section>
 				<section>
-					<h3>Change in IT</h3>
+					<h3>IT will change</h3>
 					<p><small>In my humble opinion</small></p>
 					<table>
 						<thead>
@@ -112,7 +112,7 @@
 						<li>Delivers software really really fast .. always!</li>
 						<li>Focus on business outcome</li>
 						<li>Deeply into technologies - on the edge</li>
-						<li>Team player</li>
+						<li>Team players</li>
 						<li>Curious, passionate and open minded</li>
 						<li>Proud Craftsmen</li>	
 					</u>
@@ -235,7 +235,7 @@
 					<h1>The Hackathon, its value for yourself and others, becomes what You make it!!</h1>
 				</section>
 			</section>
-
+			
 			<!-- Start tutorial part #1-->
 			<section>
 				<section data-background="cyan">
@@ -262,7 +262,7 @@
 				</section>
 				<section data-background="./img/github.png">
 					<p style="color:black">Verify access to github</br>
-						Login to</br> <a href="https://github.com/swbgo" target="_blank">https://github.com/swbgo</a></p>
+						Login to</br> <a href="https://github.com/swsvg" target="_blank">https://github.com/swsvg</a></p>
 				</section>
 				<section>
 					<p>Verify proxy settings</br>
@@ -288,7 +288,7 @@ Npm -v (should give version 2.5.1 or newer)
 					<p>Create local project directory</p>
 					<pre><code data-trim contenteditable class="fragment">
 mkdir lkskmyapp1 (use your own initial)
-cd lkskayapp1
+cd lkskmyapp1
 						</code></pre>
 				</section>
 				<section>
@@ -448,13 +448,13 @@ console.log ('Server started on port 3000');
 					<h2>Connecting to github</h2>
 				</section>
 				<section>
-					<p>Create a repository on <a href="https://github.com/swbgo">https://github.com/swbgo</a>
+					<p>Create a repository on <a href="https://github.com/swsvg">https://github.com/swsvg</a>
 						<ol>
-							<li>Remember to select the correct organisation (swbgo)
-								<li>Give the repository the same name as your app. Example: "lkskMyApp1"</li>
+							<li>Remember to select the correct organisation (swsvg)
+								<li>Give the repository the same name as your app. Example: "lkskmyapp1"</li>
 								<li>Make the repository public</li>
 								<li>Make a note of the github url for you project</li>
-								<p style="color:red">https://github.com/swtrh/lkskMyApp1.git</p>
+								<p style="color:red">https://github.com/swsvg/lkskMyApp1.git</p>
 						</ol>
 				</section>
 				<section>
@@ -464,7 +464,7 @@ console.log ('Server started on port 3000');
 							<small>(Remember to create a personal access token if you use two-factor authentication)</small>
 							<pre><code data-trim contenteditable class="fragment">
 
-git remote add origin https://github.com/swtrh/lkskMyApp1.git
+git remote add origin https://github.com/swsvg/lkskmyapp1.git
 git push -u origin master
 
 						</code></pre>
@@ -493,7 +493,7 @@ git push -u origin master
 							<ul>
 								<li class="fragment">Name: "lkskMyApp1"</li>
 								<li class="fragment">Subscription: "LKSK-Hackathonsubscripton"</li>
-								<li class="fragment">Resource Group: "SWDevelopmentCommunityBergen"</li>
+								<li class="fragment">Resource Group: "SWDevelopmentCommunityStavanger"</li>
 								<li class="fragment">App Service Plan: "+ Create new"</li>
 									<ul>
 										<li class="fragment">App service plan: "lksk_ServicePlan" (Use your initials)</li>
@@ -518,7 +518,7 @@ git push -u origin master
 							<li>Enter the following information</li>
 							<ul>
 								<li>Authorization: "Your GitHub Account"</li>
-								<li>Organization: "swbgo"</li>
+								<li>Organization: "swsvg"</li>
 								<li>Project: "Your GitHub project"</li>
 								<li>Branch: "master"</li>
 								<li>Press "Ok" - Azure will now fecth from GitHub and Deploy</li>
@@ -600,7 +600,7 @@ console.log ('Server started on port '+ port);
 				<section data-background="cyan">
 					<h1>Tutorial part #3</h1>
 					<h4>The express framework</h4>
-					<small>You probably will be using frameworks. Express is one of many. Software Developent is often about connecting the dots, gluing things together rather than the hard core, low level development, people think of.</small>
+					<small>You probably will be using frameworks. Express is one of many.</br> Software Developent is often about connecting the dots, gluing things together rather than the hard core, low level development, people think of.</small>
 				</section>
 				<section data-background="yellow">
 					<h1>Some words of caution on Cloud solutions</h1>
@@ -627,6 +627,7 @@ express-generator@4.13.1 node_modules\express-generator
 └── mkdirp@0.5.1 (minimist@0.0.8)
 					</code></pre>
 					<p class="fragment">The "-g" option means global, not only for your local project</p>
+					</br><Small class="fragment">Using -g could give problems together with --save (package.json)</Small>
 				</section>
 				<section>
 					<p>
