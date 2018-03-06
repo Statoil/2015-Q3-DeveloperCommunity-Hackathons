@@ -24,7 +24,7 @@
   "dependencies": {
     "express": "~2.5.9",
     "express-generator": "^4.13.1",
-    "mustache": "~0.7.2",
+    "mustache": "~> 2.2.1",
     "socket.io": "~0.9.16",
     "underscore": "~1.5.1"
   },
